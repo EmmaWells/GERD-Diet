@@ -37,7 +37,7 @@ ol {
 button {
     display: inline-block;
     margin: 15px 0;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background: #ff9900;
     color: white;
     text-decoration: none;
@@ -53,18 +53,6 @@ button:hover {
     background: #cc7a00;
 }
 
-/* Form e input */
-form {
-    margin-top: 20px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 /* Bottone "Claim Your Bonuses" attivo */
 button#submitButton {
