@@ -11,73 +11,78 @@
     <div class="container">
         <h1>Enjoying<br> <strong>The GERD Diet Cookbook</strong>?</h1>
         <p>🎉 <i>We hope you're loving your book!</i> 🎉</p>
-        <p> You can also receive exclusive bonuses that will add even more value to your book!</p>
+        <p>You can also receive exclusive bonuses that will add even more value to your book!</p>
         <p>All we ask in return is for you to leave a short, honest review on Amazon. Your feedback will be greatly appreciated!</p>
         
         <h2>How to Get Your Free Bonuses:</h2>
         <ol>
             <li>Click the button below to leave a review on Amazon.</li>
+            <li>Enter your email in the form below.</li>
             <li>Once you've submitted your review, click on <strong>CLAIM YOUR BONUSES</strong>, and we’ll deliver them straight to your inbox!</li>
         </ol>
 
         <!-- Bottone per lasciare la recensione -->
         <button id="amazonButton">Leave a Review on Amazon</button>
 
-      <!-- Form per inviare i dati -->
-<form id="bonusForm" method="POST">
-    <input type="hidden" id="email" name="email">
-    <button type="submit" id="submitButton" disabled data-tooltip="Leave a review to enable this button">
-    CLAIM YOUR BONUSES
-</button>
-    
-</form>
+        <!-- Form per inserire l'email e inviare i dati -->
+        <form id="bonusForm" method="POST">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your email" oninput="checkForm()">
+            
+            <button type="submit" id="submitButton" disabled data-tooltip="Enter your email and leave a review to enable this button">
+                CLAIM YOUR BONUSES
+            </button>
+        </form>
     </div>
 
     <script>
-     document.addEventListener("DOMContentLoaded", function() {
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get("email");
-
-    if (email) {
-        document.getElementById("email").value = decodeURIComponent(email);
-    }
-});
-
         // Abilita il form dopo il clic sul bottone Amazon
-document.getElementById("amazonButton").addEventListener("click", function() {
-    window.open("https://www.amazon.com/review/create-review?asin=YOUR-ASIN", "_blank");
-    setTimeout(() => {
-        document.getElementById("submitButton").disabled = false;
-    }, 1000);
-});
+        document.getElementById("amazonButton").addEventListener("click", function() {
+            window.open("https://www.amazon.com/review/create-review?asin=YOUR-ASIN", "_blank");
 
-        
-// Invia i dati a Make e verifica che il campo email sia effettivamente presente
-document.getElementById("bonusForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+            // Dopo il clic, controlliamo se l'email è compilata per abilitare il bottone
+            setTimeout(() => {
+                checkForm();
+            }, 1000);
+        });
 
+        // Controlla se l'email è compilata e abilita il bottone
+        function checkForm() {
+            const email = document.getElementById("email").value.trim();
+            const submitButton = document.getElementById("submitButton");
 
-    const emailField = document.getElementById("email");
-    const email = emailField ? emailField.value : "";
-
- 
-
-    fetch("https://hook.eu2.make.com/nunoz1blzyn2efvze6k2b2mh68mst97z", { 
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            email: email
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = "thank-you.html";
-        } else {
-            alert("Something went wrong. Please try again.");
+            if (email !== "") {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
         }
-    })
-    .catch(error => console.error("Error:", error));
-});
+
+        // Invia i dati a Make
+        document.getElementById("bonusForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+
+            if (email === "") {
+                alert("Please enter your email before claiming your bonuses.");
+                return;
+            }
+
+            fetch("https://hook.eu2.make.com/nunoz1blzyn2efvze6k2b2mh68mst97z", { 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = "thank-you.html";
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
     </script>
 
 </body>
