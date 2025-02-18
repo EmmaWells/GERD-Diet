@@ -43,15 +43,8 @@
 document.getElementById("amazonButton").addEventListener("click", function() {
     window.open("https://www.amazon.com/review/create-review?asin=YOUR-ASIN", "_blank");
     setTimeout(() => {
-        document.getElementById("amazonName").disabled = false;
         document.getElementById("submitButton").disabled = false;
     }, 1000);
-});
-
-        // Mostra un alert se il bottone "Claim Your Bonuses" viene cliccato senza inserire l'Amazon Username
-document.getElementById("submitButton").addEventListener("click", function(event) {
-    const amazonName = document.getElementById("amazonName").value;
-
 });
 
         
@@ -59,7 +52,7 @@ document.getElementById("submitButton").addEventListener("click", function(event
 document.getElementById("bonusForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const amazonName = document.getElementById("amazonName").value;
+
     const emailField = document.getElementById("email");
     const email = emailField ? emailField.value : "";
 
@@ -69,7 +62,6 @@ document.getElementById("bonusForm").addEventListener("submit", function(event) 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            amazonName: amazonName,
             email: email
         })
     })
