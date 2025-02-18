@@ -16,8 +16,7 @@
         <h2>How to Get Your Free Bonuses:</h2>
         <ol>
             <li>Click the button below to leave a review on Amazon.</li>
-            <li>Once you've submitted your review, enter your <i>Amazon Username</i> in the form below.</li>
-            <li>Click on <strong>CLAIM YOUR BONUSES</strong>, and we’ll deliver them straight to your inbox!</li>
+            <li>Once you've submitted your review, click on <strong>CLAIM YOUR BONUSES</strong>, and we’ll deliver them straight to your inbox!</li>
         </ol>
 
         <!-- Bottone per lasciare la recensione -->
@@ -25,12 +24,7 @@
 
       <!-- Form per inviare i dati -->
 <form id="bonusForm" method="POST">
-    <label for="amazonName">Your Amazon Username:</label>
-    <input type="text" id="amazonName" name="amazonName" required disabled
-           title="Leave a review to enable this field">
-
     <input type="hidden" id="email" name="email">
-
     <button type="submit" id="submitButton" disabled>CLAIM YOUR BONUSES</button>
 </form>
     </div>
@@ -58,10 +52,6 @@ document.getElementById("amazonButton").addEventListener("click", function() {
 document.getElementById("submitButton").addEventListener("click", function(event) {
     const amazonName = document.getElementById("amazonName").value;
 
-    if (!amazonName) {
-        event.preventDefault(); // Evita l'invio del form
-        alert("Please enter your Amazon Username before claiming your bonuses.");
-    }
 });
 
         
@@ -73,10 +63,7 @@ document.getElementById("bonusForm").addEventListener("submit", function(event) 
     const emailField = document.getElementById("email");
     const email = emailField ? emailField.value : "";
 
-    if (!email) {
-        alert("Error: Email is missing!");
-        return;
-    }
+ 
 
     fetch("https://hook.eu2.make.com/nunoz1blzyn2efvze6k2b2mh68mst97z", { 
         method: "POST",
