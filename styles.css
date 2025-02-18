@@ -73,7 +73,6 @@ button#submitButton:hover:not(:disabled) {
 
 /* Stile del tooltip */
 .tooltip {
-    visibility: hidden;
     background-color: #333;
     color: #fff;
     text-align: center;
