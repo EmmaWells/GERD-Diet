@@ -1,0 +1,84 @@
+/* Stile generale */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenitore principale */
+.container {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titoli */
+h1, h2 {
+    color: #333;
+}
+
+/* Testo paragrafo */
+p {
+    color: #666;
+}
+
+/* Lista ordinata */
+ol {
+    text-align: left;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Stile generale dei bottoni */
+button {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background: #ff9900;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* Effetto hover sui bottoni */
+button:hover {
+    background: #cc7a00;
+}
+
+/* Form e input */
+form {
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Bottone "Claim Your Bonuses" attivo */
+button#submitButton {
+    background: #28a745; /* Verde scuro */
+}
+
+/* Bottone disabilitato (più specifico) */
+button#submitButton:disabled {
+    background: #a3e6a3 !important; /* Verde chiaro */
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+/* Effetto hover quando il bottone è attivo */
+button#submitButton:hover:not(:disabled) {
+    background: #218838;
+}
