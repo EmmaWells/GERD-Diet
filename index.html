@@ -26,7 +26,7 @@
       <!-- Form per inviare i dati -->
 <form id="bonusForm" method="POST">
     <input type="hidden" id="email" name="email">
-    <button type="submit" id="submitButton" disabled data-tooltip="Leave a review to enable this button">
+    <button type="submit" id="submitButton" data-tooltip="Leave a review to enable this button">
     CLAIM YOUR BONUSES
 </button>
     
@@ -46,9 +46,9 @@
         // Abilita il form dopo il clic sul bottone Amazon
 document.getElementById("amazonButton").addEventListener("click", function() {
     window.open("https://www.amazon.com/review/create-review?asin=B0DY5J8MYW", "_blank");
-    setTimeout(() => {
-        document.getElementById("submitButton").disabled = false;
-    }, 1000);
+ //   setTimeout(() => {
+   //     document.getElementById("submitButton").disabled = false;
+    //}, 1000);
 });
 
         
