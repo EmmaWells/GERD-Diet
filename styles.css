@@ -59,12 +59,7 @@ button#submitButton {
     background: #28a745; /* Verde scuro */
 }
 
-/* Bottone disabilitato (più specifico) */
-button#submitButton:disabled {
-    background: #a3e6a3 !important; /* Verde chiaro */
-    color: #ffffff;
-    cursor: not-allowed;
-}
+
 
 /* Effetto hover quando il bottone è attivo */
 button#submitButton:hover:not(:disabled) {
