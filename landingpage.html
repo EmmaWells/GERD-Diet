@@ -27,7 +27,7 @@
             <input type="hidden" id="email" name="email">
             <button type="submit" id="submitButton" data-tooltip="Leave a review to enable this button">
             CLAIM YOUR BONUSES
-            </button>   
+            </button>
         </form>
     </div>
 
@@ -41,24 +41,11 @@
     }
 });
 
-        // Abilita il form dopo il clic sul bottone Amazon
-document.getElementById("amazonButton").addEventListener("click", function() {
-    window.open("https://www.amazon.com/review/create-review?asin=B0DY5J8MYW", "_blank");
- //   setTimeout(() => {
-   //     document.getElementById("submitButton").disabled = false;
-    //}, 1000);
-});
-
-        
-// Invia i dati a Make e verifica che il campo email sia effettivamente presente
 document.getElementById("bonusForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-
     const emailField = document.getElementById("email");
     const email = emailField ? emailField.value : "";
-
- 
 
     fetch("https://hook.eu2.make.com/nunoz1blzyn2efvze6k2b2mh68mst97z", { 
         method: "POST",
