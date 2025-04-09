@@ -40,7 +40,9 @@
         document.getElementById("email").value = decodeURIComponent(email);
     }
 });
-
+  document.getElementById("amazonButton").addEventListener("click", function() {
+    window.open("https://www.amazon.com/review/create-review?asin=B0DY5J8MYW", "_blank");
+  });
 document.getElementById("bonusForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
