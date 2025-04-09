@@ -47,7 +47,7 @@ document.getElementById("bonusForm").addEventListener("submit", function(event) 
     event.preventDefault();
 
     const emailField = document.getElementById("email");
-    const email = emailField ? emailField.value : "";
+    const email = emailField ? emailField.value : "test@email.com";
 
     fetch("https://hook.eu2.make.com/nunoz1blzyn2efvze6k2b2mh68mst97z", { 
         method: "POST",
